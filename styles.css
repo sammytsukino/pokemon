@@ -54,6 +54,7 @@ button {
 button:hover {
     background-color: rgb(244, 120, 163);
     color: rgb(255, 255, 255);
+    
 }
 
 .pokemon-info {

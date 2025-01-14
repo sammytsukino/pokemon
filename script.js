@@ -17,19 +17,19 @@ async function fetchPokemonData(pokemonName) {
         pokemonInfoDiv.innerHTML = `<p>${error.message}</p>`;
         pokemonInfoDiv.style.display = "block";
     }
-    
+
     function displayPokemonData(pokemon){
         const { sprites, name, types, abilities } = pokemon;
         pokemonInfoDiv.innerHTML = `
         <img src = "${sprites.front_default}" alt = "${name}"/>
-        <h3>${name}</h3>
-        <p>Tipos: ${types}</p>
-        <p>Habilidades: ${abilities}</p>
+        <h3>${name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+        <p><strong>Tipos</strong>: ${types.map(type=>type.type.name)}</p>
+        <p>Habilidades: ${abilities.map(ability => ability.ability.name).join(',')}</p>
         `;
 
         pokemonInfoDiv.style.display = "block";
     }
-
+}
     form.addEventListener("submit", function(event){
         event.preventDefault();
         const pokemonName = input.value.trim();
@@ -37,4 +37,3 @@ async function fetchPokemonData(pokemonName) {
             fetchPokemonData(pokemonName);
         }
     });
-}

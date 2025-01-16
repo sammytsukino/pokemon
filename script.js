@@ -24,7 +24,7 @@ async function fetchPokemonData(pokemonName) {
         <img src = "${sprites.front_default}" alt = "${name}"/>
         <h3>${name.charAt(0).toUpperCase() + name.slice(1)}</h3>
         <p><strong>Tipos</strong>: ${types.map(type=>type.type.name)}</p>
-        <p>Habilidades: ${abilities.map(ability => ability.ability.name).join(', ')}</p>
+        <p><strong>Habilidades:</strong> ${abilities.map(ability => ability.ability.name).join(', ')}</p>
         `;
 
         pokemonInfoDiv.style.display = "block";
